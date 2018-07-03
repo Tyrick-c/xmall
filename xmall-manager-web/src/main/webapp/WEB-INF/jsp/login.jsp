@@ -25,13 +25,33 @@
     <script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script>
     <script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script>
     <script type="text/javascript" src="lib/gt.js"></script>
+    <!-- Hotjar Tracking Code for http://xmadmin.exirck.cn -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:695920,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?90194188523e0a2d04ad3ad170c83f30";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 
     <style>
         .title,h6{
             font-family: "黑体";
         }
         .layui-layer-title {
-            padding-right: 220px;
+            padding-right: 305px;
             font-family:"Microsoft Yahei"
         }
         .layui-layer-dialog .layui-layer-content{
@@ -80,7 +100,7 @@
                     </div>
 
                     <div class="sub-w3l">
-                        <h6 onclick="forgetPass()" style="cursor: pointer"><a>忘记密码?</a></h6>
+                        <h6 onclick="forgetPass()" style="cursor: pointer"><a>游客体验账号密码?</a></h6>
                         <div class="right-w3l">
                             <input id="loginButton" type="button" class="login" value="登录">
                         </div>
@@ -171,7 +191,7 @@
                 challenge: data.challenge,
                 new_captcha: data.new_captcha, // 用于宕机时表示是新验证码的宕机
                 offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
-                product: "popup", // 产品形式，包括：float(点击汉字)，popup(滑动)
+                product: "popup", // 产品形式，包括：float，popup
                 width: "100%"
             }, handler);
         }
@@ -199,9 +219,7 @@
             }
         },
         error:function(XMLHttpRequest){
-            if(XMLHttpRequest.status!=200){
-                layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status+' 错误信息:'+JSON.parse(XMLHttpRequest.responseText).message,{title: '错误信息',icon: 2});
-            }
+            layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status,{title: '错误信息',icon: 2});
         }
     });
 </script>
